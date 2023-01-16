@@ -3,7 +3,7 @@
 Cahier des charges:
 
 
-balle : -change de gravité en appuyant sur entrée
+balle : -change de gravité en appuyant sur espace
         -vitesse nulle
         -au contact des bords, la balle disparait et le jeu s'arrête
         -se déplace verticalement en fonction ou non de la gravité et du contact avec les plateaux
@@ -20,6 +20,9 @@ score : -temps
         
         
 musique : oui
+
+niveaux : -en fonction du scoren, on passe au niveau suivant
+         
                      
                 
         
