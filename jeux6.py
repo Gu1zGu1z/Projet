@@ -17,8 +17,8 @@ pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
 
 # ----------- Balle --------------------------
 # position initiale de la balle
-# (origine des positions : milieu du tiers inférieur)
-balle_x = 45
+# (origine des positions : milieu inférieur)
+balle_x = 76
 balle_y = 100
 
 
