@@ -3,7 +3,7 @@
 Cahier des charges:
 
 
-balle : -change de gravité en appuyant sur espace
+balle : -change de gravité en appuyant sur les flèches ( verticalement mais aussi horizontalement )
         -vitesse nulle
         -au contact des bords, la balle disparait et le jeu s'arrête
         -se déplace verticalement en fonction ou non de la gravité et du contact avec les plateaux
