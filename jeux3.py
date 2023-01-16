@@ -43,9 +43,9 @@ def balle_deplacement(x, y):
 def update():
    """mise à jour des variables (30 fois par seconde)"""
 
-    global balle_x, balle_y
-    # mise à jour de la position du plateau
-    balle_x, balle_y = balle_deplacement(balle_x, balle_y)
+   global balle_x, balle_y
+   # mise à jour de la position du plateau
+   balle_x, balle_y = balle_deplacement(balle_x, balle_y)
 
 
 # =========================================================
