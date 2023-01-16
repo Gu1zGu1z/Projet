@@ -8,7 +8,7 @@ config = {
     'rayon_balle': 2, \
     'vitesse_max' : 15, \
     'niveau_max' : 3,
-    'score' : 0
+    'score' : 0, \
     'balle_max' : 120, \
     'balle_min' : 37
 }
