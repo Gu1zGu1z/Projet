@@ -9,6 +9,8 @@ config = {
     'vitesse_max' : 15, \
     'niveau_max' : 3,
     'score' : 0
+    'balle_max' : 120, \
+    'balle_min' : 37
 }
 # définit la taille de la fenêtre et son titre
 pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
@@ -24,12 +26,10 @@ balle_y = 100
 
 def balle_deplacement(x, y):
     """déplacement avec les touches de directions verticales"""
-    if pyxel.btn(pyxel.KEY_DOWN):
-        if (y < 120) :
-            y = y + 20
-    if pyxel.btn(pyxel.KEY_UP):
-        if (y > 0) :
-            y = y - 20
+    if pyxel.btn(pyxel.KEY_DOWN) and balle_y > config['balle_min']:
+        y = y + 20
+    if pyxel.btn(pyxel.KEY_UP) and balle_y < config['balle_max'] :
+        y = y - 20
     return x, y
 
 
