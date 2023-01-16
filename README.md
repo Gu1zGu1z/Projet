@@ -12,11 +12,14 @@ plateaux + fonds : -se déplace seulement de droite à gauche
                    -vitesse qui augmente
                    
 obstacles : -pics
-            -canons: -fixe
-                     -envoie un boulet sur une ligne horizontale
+            -canons: -fixes
+                     -envoient un boulet sur une ligne horizontale
                      
 score : -temps
         -étoiles colléctées
+        
+        
+musique : oui
                      
                 
         
