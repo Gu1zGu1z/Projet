@@ -60,7 +60,7 @@ def draw():
     pyxel.cls(0)
     
     # balle (cercle)
-        pyxel.circ(balle_x, balle_y, config['rayon_balle'], 2)
+    pyxel.circ(balle_x, balle_y, config['rayon_balle'], 2)
     
 # https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.jeux
     
