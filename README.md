@@ -21,7 +21,9 @@ score : -temps
         
 musique : oui
 
-niveaux : -en fonction du scoren, on passe au niveau suivant
+niveaux : -en fonction du score, on passe au niveau suivant
+          -nouveaux obstacles et bonus
+          
          
                      
                 
