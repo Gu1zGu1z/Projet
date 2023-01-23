@@ -26,14 +26,21 @@ balle_y = 100
 
 def balle_deplacement(x, y):
     """déplacement avec les touches de directions verticales"""
-    a = 0
-    if pyxel.btn(pyxel.KEY_UP):
-        if (y > config['rayon_balle']):
-            y = y - 20 
-    if pyxel.btn(pyxel.KEY_DOWN):
-        if (y < config['taille_y'] - config['rayon_balle']) :
-            y = y + 20   
-    return x, y
+     
+    while 1 == 1:
+        y = y - 2
+        if pyxel.btn(pyxel.KEY_DOWN):
+            if (y < config['taille_y'] - config['rayon_balle']) :
+                y = y + 2
+        if pyxel.btn(pyxel.KEY_UP):
+            if (y > config['rayon_balle']):
+                y = y - 2 
+        
+    
+    
+    
+    
+   
 
 
 
