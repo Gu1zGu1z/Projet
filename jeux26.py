@@ -35,7 +35,7 @@ def balle_deplacement(x, y):
         if pyxel.btn(pyxel.KEY_UP):
             if (y > config['rayon_balle']):
                 y = y - 2 
-     return x,y
+     return x, y
         
     
     
