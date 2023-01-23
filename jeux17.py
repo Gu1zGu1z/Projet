@@ -62,13 +62,6 @@ def draw():
     # balle (cercle)
     pyxel.circ(balle_x, balle_y, config['rayon_balle'], 2)
     
-     if (balle_y == config['taille_y'] - config['rayon_balle'] or balle_y == 0 + config['rayon_balle']):
-        # jeu terminé
-        pyxel.text(50, 50, "GAME OVER", 7)   
-        pyxel.text(40, 60, "Appuyez sur ENTREE ", 7)
-        pyxel.text(50, 80, "Essayez de faire mieux !", 7)
-        if pyxel.btn(pyxel.KEY_RETURN):
-            pyxel.quit()
     
 # https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.jeux
     
