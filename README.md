@@ -29,6 +29,14 @@ niveaux :
 -en fonction du score, on passe au niveau suivant
 -nouveaux obstacles et bonus
           
+          
+          
+ 30/01/23 :
+ -gravité terminée
+ -la balle est bien attirée vers le haut et vers le bas en fonction des touches de direction
+ -rechercher comment ajouter des images dans le jeu
+ -rechercher comment fonctionne la prog orientée objet
+
          
                      
                 
