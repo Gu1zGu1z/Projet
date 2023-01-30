@@ -26,14 +26,14 @@ class Ball:
 
 class Game:
     def __init__(self):
-        self.ball = Ball(80, 60, 1)
+        self.ball = Ball(57, 100, 1)
         self.gravite = 1
 
     def update(self):
         if pyxel.btnp(pyxel.KEY_UP):
-            self.gravite = -3
+            self.gravite = -5
         elif pyxel.btnp(pyxel.KEY_DOWN):
-            self.gravite = 3
+            self.gravite = 5
 
         self.ball.gravite = self.gravite
         self.ball.update()
