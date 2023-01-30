@@ -18,7 +18,7 @@ class Chronometer:
 
     def draw(self):
         minutes, seconds = divmod(self.time, 60)
-        pyxel.text(5, 5, f"{minutes:02}:{seconds:02}", 7)
+        pyxel.text(135, 5, f"{minutes:02}{seconds:02}", 7)
 
 # Initialise Pyxel
 pyxel.init(160, 120)
