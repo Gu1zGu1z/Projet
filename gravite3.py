@@ -40,10 +40,10 @@ class Game:
 
     def draw(self):
         pyxel.cls(0)
-        pyxel.circ(self.ball.x, self.ball.y, config['rayon_balle'], 2, 9)
+        pyxel.circ(self.ball.x, self.ball.y, config['rayon_balle'], 2)
 
 # Initialize Pyxel
-pyxel.init(160, 120)
+pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
 
 # Create an instance of the game
 game = Game()
