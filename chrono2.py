@@ -13,11 +13,13 @@ class Chronometer:
         self.running = False
 
     def update(self):
+        if pyxel.btnr(pyxel.KEY_A):
+            self.running = not self.running
         if self.running:
             self.time += 1
 
     def draw(self):
-        minutes, seconds = self.time//60, self.time%60
+        minutes, seconds = self.time//(30*60), (self.time//30)%60
         pyxel.text(135, 5, f"{minutes:02}{seconds:02}", 7)
 
 class Jeu():
