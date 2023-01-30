@@ -31,7 +31,7 @@ class Balle:
 
 class Jeu:
     def __init__(self):
-        self.ball = Balle(57, 100, 1)
+        self.balle = Balle(57, 100, 1)
         self.gravite = config['gravite_puissance']
 
     def update(self):
