@@ -17,26 +17,30 @@ class Chronometer:
             self.time += 1
 
     def draw(self):
-        minutes, seconds = divmod(self.time, 60)
+        minutes, seconds = self.time//60, self.time%60
         pyxel.text(135, 5, f"{minutes:02}{seconds:02}", 7)
 
+class Jeu():
+    def __init__(self):
 # Initialise Pyxel
-pyxel.init(160, 120)
+    pyxel.init(160, 120)
 
 # Create an instance of the chronometer
-chronometer = Chronometer()
+    self.chronometer = Chronometer()
 
 # Start the chronometer
-chronometer.start()
+    self.chronometer.start()
+    pyxel.run(self.update, self.draw)
+
 
 # Update function for Pyxel
-def update():
-    chronometer.update()
+    def update(self):
+        chronometer.update()
 
 # Draw function for Pyxel
-def draw():
-    pyxel.cls(0)
-    chronometer.draw()
+    def draw(self):
+        pyxel.cls(0)
+        self.chronometer.draw()
 
 # Run Pyxel
-pyxel.run(update, draw)
+Jeu()
