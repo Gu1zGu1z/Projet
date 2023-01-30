@@ -20,14 +20,15 @@ pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
 # ------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------
-class Balle:
+class Balle: # création de l'objet de la balle
     def __init__(self, x, y, gravite):
         self.x = x
         self.y = y
         self.gravite = gravite
 
     def update(self):
-        self.y += self.gravite
+        """ cette fonction permet de mettre en mouvement la balle en fonction de la gravité. """
+        self.y = self.gravite + self.y  # on ajoute l'influence de la gravité à la position verticale de la balle
 
 class Jeu:
     def __init__(self):
