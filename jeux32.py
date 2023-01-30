@@ -20,7 +20,7 @@ pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
 # ------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------
-class Ball:
+class Balle:
     def __init__(self, x, y, gravite):
         self.x = x
         self.y = y
@@ -29,9 +29,9 @@ class Ball:
     def update(self):
         self.y += self.gravite
 
-class Game:
+class Jeu:
     def __init__(self):
-        self.ball = Ball(57, 100, 1)
+        self.ball = Balle(57, 100, 1)
         self.gravite = config['gravite_puissance']
 
     def update(self):
@@ -40,21 +40,21 @@ class Game:
         elif pyxel.btnp(pyxel.KEY_DOWN):
             self.gravite = config['gravite_puissance']
 
-        self.ball.gravite = self.gravite
-        self.ball.update()
+        self.balle.gravite = self.gravite
+        self.balle.update()
 
     def draw(self):
         pyxel.cls(0)
-        pyxel.circ(self.ball.x, self.ball.y, config['rayon_balle'], 2)
+        pyxel.circ(self.balle.x, self.balle.y, config['rayon_balle'], 2)
         
-game = Game()
+jeu = Jeu()
 
 def update():
-    game.update()
+    jeu.update()
 
 
 def draw():
-    game.draw()
+    jeu.draw()
     
     
 # https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.jeux
