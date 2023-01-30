@@ -36,10 +36,13 @@ class Jeu:
         self.gravite = config['gravite_puissance']
 
     def update(self):
+        """ cette fonction définit le changement de gravité ( attraction vers le haut ou vers le bas ) en fonction des touches de directions haut et bas"""
         if pyxel.btnp(pyxel.KEY_UP):
-            self.gravite = -(config['gravite_puissance'])
+            self.gravite = -(config['gravite_puissance']) # lorsque la touche de direction "haut" est pressée, la gravité prend une valeur négative.
+            # la balle est donc attirée vers le haut puisque self.y tend vers 0
         elif pyxel.btnp(pyxel.KEY_DOWN):
-            self.gravite = config['gravite_puissance']
+            self.gravite = config['gravite_puissance'] # lorsque la touche de direction "bas" est pressée, la gravité prend une valeur positive.
+            # la balle est donc attirée vers le bas puisque self.y tend vers +∞
 
         self.balle.gravite = self.gravite
         self.balle.update()
