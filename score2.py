@@ -23,7 +23,7 @@ class Score:
 
     def draw(self):
         seconds = self.time//60
-        pyxel.text(135, 5,f"{seconds:08}", 7)
+        pyxel.text(135, 5,f"{seconds:05}", 7)
 
 class Jeu():
     def __init__(self):
