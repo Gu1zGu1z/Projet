@@ -10,7 +10,8 @@ config = {
     'niveau_max' : 3,
     'score' : 0, \
     'balle_max' : 120, \
-    'balle_min' : 37
+    'balle_min' : 37, \
+    'gravite_puissance' : 5
 }
 # définit la taille de la fenêtre et son titre
 pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
@@ -31,13 +32,13 @@ class Ball:
 class Game:
     def __init__(self):
         self.ball = Ball(57, 100, 1)
-        self.gravite = 1
+        self.gravite = config['gravite_puissance']
 
     def update(self):
         if pyxel.btnp(pyxel.KEY_UP):
-            self.gravite = -5
+            self.gravite = -(config['gravite_puissance'])
         elif pyxel.btnp(pyxel.KEY_DOWN):
-            self.gravite = 5
+            self.gravite = config['gravite_puissance']
 
         self.ball.gravite = self.gravite
         self.ball.update()
