@@ -6,8 +6,7 @@ config = {
     'taille_y' : 152, \
     'titre' : 'flip flop', \
     'rayon_balle': 2, \
-    'vitesse_max' : 15, \
-    'niveau_max' : 3,
+    'niveau_max' : 3, \
     'score' : 0, \
     'balle_max' : 120, \
     'balle_min' : 37, \
