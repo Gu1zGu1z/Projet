@@ -51,7 +51,7 @@ class Jeu:
         pyxel.cls(0)
         pyxel.circ(self.balle.x, self.balle.y, config['rayon_balle'], 2)
         
-    pyxel.run(self.update, self.draw)
+    pyxel.run(update, draw)
         
 
     
