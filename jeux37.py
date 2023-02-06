@@ -12,8 +12,7 @@ config = {
     'balle_min' : 37, \
     'gravite_puissance' : 5
 }
-# définit la taille de la fenêtre et son titre
-pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
+
 
 # ------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------
@@ -31,6 +30,8 @@ class Balle: # création de l'objet de la balle
 
 class Jeu:
     def __init__(self):
+        # définit la taille de la fenêtre et son titre
+        pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
         self.balle = Balle(57, 100, 1)
         self.gravite = config['gravite_puissance']
 
@@ -50,16 +51,9 @@ class Jeu:
         pyxel.cls(0)
         pyxel.circ(self.balle.x, self.balle.y, config['rayon_balle'], 2)
         
-jeu = Jeu()
 
-def update():
-    jeu.update()
-
-
-def draw():
-    jeu.draw()
     
     
 # https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.jeux
     
-pyxel.run(update, draw)
+Jeu()
