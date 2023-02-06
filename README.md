@@ -36,6 +36,15 @@ niveaux :
  -la balle est bien attirée vers le haut et vers le bas en fonction des touches de direction
  -rechercher comment ajouter des images dans le jeu
  -rechercher comment fonctionne la prog orientée objet
+ 
+ 
+objectif vacances : 
+- passe completement  sous oriente objet (guillaume)
+- faire avancer les decors (margot)
+- finir le score (clara)
+- (collision avec plateau) (clara/guillaume) 
+- (reussir a supprimer l etoile)
+- (ajouter les bandes )
 
          
                      
