@@ -27,6 +27,8 @@ class Balle: # création de l'objet de la balle
     def update(self):
         """ cette fonction permet de mettre en mouvement la balle en fonction de la gravité. """
         self.y = self.gravite + self.y  # on ajoute l'influence de la gravité à la position verticale de la balle
+    def draw(self):
+        pyxel.circ(self.balle.x, self.balle.y, config['rayon_balle'], 2)
 
 class Jeu:
     def __init__(self):
@@ -34,6 +36,7 @@ class Jeu:
         pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
         self.balle = Balle(57, 100, 1)
         self.gravite = config['gravite_puissance']
+        pyxel.run(self.update, self.draw)
 
     def update(self):
         """ cette fonction définit le changement de gravité ( attraction vers le haut ou vers le bas ) en fonction des touches de directions haut et bas"""
@@ -49,9 +52,9 @@ class Jeu:
 
     def draw(self):
         pyxel.cls(0)
-        pyxel.circ(self.balle.x, self.balle.y, config['rayon_balle'], 2)
+        self.balle.draw()
         
-    pyxel.run(update, draw)
+   
         
 
     
