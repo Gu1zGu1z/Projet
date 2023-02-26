@@ -10,7 +10,7 @@ config = {
     'score' : 0, \
     'balle_max' : 120, \
     'balle_min' : 37, \
-    'gravite_puissance' : 5
+    'gravite_puissance' : 1
 }
 
 
@@ -20,13 +20,17 @@ config = {
 # ------------------------------------------------------------------------------------------------------------------------------------
 class Balle: # création de l'objet de la balle
     def __init__(self, x, y, gravite):
+        # position initial de la balle
         self.x = x
         self.y = y
+
+        # gravité initiale de la balle
         self.gravite = gravite
 
     def update(self):
         """ cette fonction permet de mettre en mouvement la balle en fonction de la gravité. """
         self.y = self.gravite + self.y  # on ajoute l'influence de la gravité à la position verticale de la balle
+
     def draw(self):
         pyxel.circ(self.x, self.y, config['rayon_balle'], 2)
 
@@ -34,7 +38,7 @@ class Jeu:
     def __init__(self):
         # définit la taille de la fenêtre et son titre
         pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
-        self.balle = Balle(57, 100, 1)
+        self.balle = Balle(57, 10, 1)
         self.gravite = config['gravite_puissance']
         pyxel.run(self.update, self.draw)
 
@@ -47,15 +51,28 @@ class Jeu:
             self.gravite = config['gravite_puissance'] # lorsque la touche de direction "bas" est pressée, la gravité prend une valeur positive.
             # la balle est donc attirée vers le bas puisque self.y tend vers +∞
 
-        self.balle.gravite = self.gravite
-        self.balle.update()
+        print(f'balle=({self.balle.x, self.balle.y})')        
+        if not self.game_over():
+            self.balle.gravite = self.gravite
+            self.balle.update()
+
+    def game_over(self):
+        if self.balle.y < 0 or self.balle.y >= config['taille_y']:
+            # la balle a dépassé les bords
+            return True
+        
+        return False
 
     def draw(self):
         pyxel.cls(0)
-        self.balle.draw()
-        
-   
-        
+        if self.game_over():
+            
+            pyxel.text(50, 80, "Game Over", 7)
+            pyxel.text(30, 100, "Appuyez sur ENTER", 7)
+            if pyxel.btn(pyxel.KEY_RETURN):
+                pyxel.quit()
+        else:
+            self.balle.draw()
 
     
     
