@@ -68,7 +68,7 @@ class Jeu:
         if self.game_over():
             
             pyxel.text(50, 80, "Game Over", 7)
-            pyxel.text(30, 100, "Appuyez sur ENTER", 7)
+            pyxel.text(30, 100, "Appuyez sur ENTRER", 7)
             if pyxel.btn(pyxel.KEY_RETURN):
                 pyxel.quit()
         else:
