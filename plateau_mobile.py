@@ -1,8 +1,8 @@
 import pyxel
 
-# taille de la fenetre 128x128 pixels
+# taille de la fenetre 160x120 pixels
 # ne pas modifier
-pyxel.init(160, 120, title="Nuit du c0de")
+pyxel.init(160, 120, title="flipflop")
 pyxel.load("res.pyxres")
 
 # (origine des positions : coin haut gauche)
