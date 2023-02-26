@@ -4,41 +4,19 @@ import pyxel
 # ne pas modifier
 pyxel.init(160, 120, title="Nuit du c0de")
 pyxel.load("res.pyxres")
-# position initiale du vaisseau
+
 # (origine des positions : coin haut gauche)
-vaisseau_x = 60
-vaisseau_y = 60
-ennemis_x = 100
-ennemis_y = 60
 bande1_x = 0
 bande1_y = 30
 bande2_x =0
 bande2_y = 90
 
-VITESSE_BANDE_1 = 10
-VITESSE_BANDE_2 = 5
+VITESSE_BANDE_1 = 1
+VITESSE_BANDE_2 = 1
 
-def vaisseau_deplacement(x, y):
-    """déplacement avec les touches de directions"""
-
-    if pyxel.btn(pyxel.KEY_RIGHT):
-        if (x < 152) :
-            x = x + 1
-    if pyxel.btn(pyxel.KEY_LEFT):
-        if (x > 0) :
-            x = x - 1
-    if pyxel.btn(pyxel.KEY_DOWN):
-        if (y < 82) :
-            y = y + 1
-    if pyxel.btn(pyxel.KEY_UP):
-        if (y > 38) :
-            y = y - 1
-    return x, y
-
-
-def bande_deplacement(x, y):
+def bande_deplacement(x, y, vitesse):
     """déplacement de la bande"""
-    x = x-VITESSE_BANDE_1
+    x = x-vitesse
     return x, y
 
 class Chronometer:
@@ -74,11 +52,14 @@ chronometer.start()
 def update():
     """mise à jour des variables (30 fois par seconde)"""
 
-    global vaisseau_x, vaisseau_y
+    global bande1_x, bande1_y
+    global bande2_x, bande2_y
+
 
     # mise à jour de la position du vaisseau
-    vaisseau_x, vaisseau_y = vaisseau_deplacement(vaisseau_x, vaisseau_y)
-    bande1_x, bande1_y = bande_deplacement(bande1_x, bande1_y)
+    bande1_x, bande1_y = bande_deplacement(bande1_x, bande1_y, VITESSE_BANDE_1)
+    bande2_x, bande2_y = bande_deplacement(bande2_x, bande2_y, VITESSE_BANDE_2)
+
     chronometer.update()
 
 # =========================================================
@@ -107,8 +88,11 @@ def draw():
     # vaisseau (carre 8x8)
     
    # pyxel.blt(ennemis_x, ennemis_y,0,24,9,7,7)
-    
-    pyxel.blt(bande1_x, bande1_y,0,0,16,160,8)
-    pyxel.blt(bande2_x, bande2_y,0,0,16,160,8)
+    pyxel.blt(bande1_x % 160, bande1_y,0,0,16,160,8)
+    pyxel.blt((bande1_x % 160) - 160, bande1_y,0,0,16,160,8)
+
+    pyxel.blt(bande2_x % 160, bande2_y,0,0,16,160,8)
+    pyxel.blt((bande2_x % 160) - 160, bande2_y,0,0,16,160,8)
+
   
 pyxel.run(update, draw)
