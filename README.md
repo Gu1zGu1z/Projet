@@ -42,7 +42,7 @@ objectif vacances :
 - passe completement  sous oriente objet (guillaume)
 - faire avancer les decors (margot)
 - finir le score (clara)
-- (collision avec plateau) (clara/guillaume) 
+- (collision avec les bords) (clara/guillaume) 
 - (reussir a supprimer l etoile)
 - (ajouter les bandes )
 
