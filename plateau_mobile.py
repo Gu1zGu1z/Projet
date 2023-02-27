@@ -70,9 +70,8 @@ def draw():
 
     # vide la fenetre
     pyxel.cls(0)
-    #pyxel.blt(vaisseau_x, vaisseau_y,0,32,0,8,8)
-
-    """ (a,b,c,d,e,f,g) 
+    
+    """pyxel.blt(a,b,c,d,e,f,g) 
     a= x 
     b= y
     c= quelle fenetre( de l'outil de creation de pyxel)
