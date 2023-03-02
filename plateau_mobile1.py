@@ -19,7 +19,7 @@ def bande_deplacement(x, y, vitesse):
     x = x-vitesse
     return x, y
 
-class Chronometer:
+class Chronometre:
     def __init__(self):
         self.time = 0
         self.running = False
@@ -40,11 +40,11 @@ class Chronometer:
         pyxel.text(135, 5, f"{minutes:02}{seconds:02}", 7)
 
 
-# Create an instance of the chronometer
-chronometer = Chronometer()
+# crée une instance pour le chronomètre
+chronometre = Chronometre()
 
-# Start the chronometer
-chronometer.start()
+# enclenche le chronomètre
+chronometre.start()
 
 # =========================================================
 # == UPDATE
@@ -60,7 +60,7 @@ def update():
     bande1_x, bande1_y = bande_deplacement(bande1_x, bande1_y, VITESSE_BANDE_1)
     bande2_x, bande2_y = bande_deplacement(bande2_x, bande2_y, VITESSE_BANDE_2)
 
-    chronometer.update()
+    chronometre.update()
 
 # =========================================================
 # == DRAW
@@ -81,7 +81,7 @@ def draw():
     g= hauteur du dessin
     
     """
-    chronometer.draw()
+    chronometre.draw()
     
     """pyxel.blt( 78,300,32,0,8,8)"""
     # vaisseau (carre 8x8)
