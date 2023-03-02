@@ -10,7 +10,7 @@ config = {
     'score' : 0, \
     'balle_max' : 120, \
     'balle_min' : 37, \
-    'gravite_puissance' : 1
+    'gravite_puissance' : 2
 }
 
 
