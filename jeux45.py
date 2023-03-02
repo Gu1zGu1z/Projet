@@ -18,6 +18,29 @@ config = {
 # ------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------
+
+class Chronometre:
+    def __init__(self):
+        self.time = 0
+        self.running = False
+
+    def start(self):
+        self.time = 0
+        self.running = True
+
+    def stop(self):
+        self.running = False
+
+    def update(self):
+        if self.running:
+            self.time += 1
+
+    def draw(self):
+        minutes, seconds = divmod(self.time, 60)
+        pyxel.text(135, 5, f"{minutes:02}{seconds:02}", 7)
+
+
+
 class Balle: # création de l'objet de la balle
     def __init__(self, x, y, gravite):
         # position initial de la balle
