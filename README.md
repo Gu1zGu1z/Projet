@@ -40,12 +40,13 @@ niveaux :
  
 objectif vacances : 
 - passe completement  sous oriente objet (guillaume)
-- faire avancer les decors (margot)
-- finir le score (clara)
+* faire avancer les decors (margot)
+* finir le score (clara)
 - (collision avec les bords) (clara/guillaume) 
 - (reussir a supprimer l etoile)
-- (ajouter les bandes )
-
+* (ajouter les bandes )
+- ajouter les ennemis
+- mettre les deux codes ensembles
          
                      
                 
