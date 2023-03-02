@@ -66,6 +66,11 @@ class Jeu:
         self.gravite = config['gravite_puissance']
         pyxel.run(self.update, self.draw)
 
+    # crée une instance pour le chronomètre
+    chronometre = Chronometre()
+
+    # enclenche le chronomètre
+    chronometre.start()
     def update(self):
         """ cette fonction définit le changement de gravité ( attraction vers le haut ou vers le bas ) en fonction des touches de directions haut et bas"""
         if pyxel.btnp(pyxel.KEY_UP):
@@ -79,6 +84,7 @@ class Jeu:
         if not self.game_over():
             self.balle.gravite = self.gravite
             self.balle.update()
+        chronometre.update()
 
     def game_over(self):
         if self.balle.y < 0 or self.balle.y >= config['taille_y']:
@@ -97,6 +103,7 @@ class Jeu:
                 pyxel.quit()
         else:
             self.balle.draw()
+        chronometre.draw()
 
     
     
