@@ -64,7 +64,7 @@ def ennemis_deplacement(ennemis_liste):
 
     for ennemi in ennemis_liste:
         ennemi[1] += 1
-        if  ennemi[1]>128:
+        if  ennemi[1]>120:
             ennemis_liste.remove(ennemi)
     return ennemis_liste
 
