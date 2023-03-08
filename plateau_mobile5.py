@@ -55,7 +55,7 @@ def ennemis_creation(ennemis_liste):
 
     # un ennemi par seconde
     if (pyxel.frame_count % 30 == 0):
-        ennemis_liste.append([random.randint(0, 120), 0])
+        ennemis_liste.append([random.randint(0, 112), 0])
     return ennemis_liste
 
 
