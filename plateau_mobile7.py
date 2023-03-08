@@ -57,7 +57,7 @@ def ennemis_creation(ennemis_liste):
     """création aléatoire des ennemis"""
 
     # un ennemi par seconde
-    if (pyxel.frame_count % 50 == 0):
+    if (pyxel.frame_count % 40 == 0):
         ennemis_liste.append([160, (random.choice(ennemis))])
     return ennemis_liste
 
@@ -66,7 +66,7 @@ def ennemis_deplacement(ennemis_liste):
     """déplacement des ennemis vers le haut et suppression s'ils sortent du cadre"""
 
     for ennemi in ennemis_liste:
-        ennemi[0] -= 1
+        ennemi[0] -= 2
         if  ennemi[0]<-8:
             ennemis_liste.remove(ennemi)
     return ennemis_liste
