@@ -6,7 +6,7 @@ import random
 pyxel.init(160, 120, title="flipflop")
 pyxel.load("flipflop.pyxres")
 
-ennemis_liste = []
+
 
 # (origine des positions : coin haut gauche)
 bande1_x = 0
@@ -16,6 +16,10 @@ bande2_y = 90
 
 VITESSE_BANDE_1 = 1
 VITESSE_BANDE_2 = 1
+
+ennemis = [38,82]
+# initialisation des ennemis
+ennemis_liste = []
 
 def bande_deplacement(x, y, vitesse):
     """déplacement de la bande"""
@@ -49,13 +53,12 @@ chronometre = Chronometre()
 # enclenche le chronomètre
 chronometre.start()
 
-  
 def ennemis_creation(ennemis_liste):
     """création aléatoire des ennemis"""
 
     # un ennemi par seconde
-    if (pyxel.frame_count % 30 == 0):
-        ennemis_liste.append([random.randint(0, 112), 0])
+    if (pyxel.frame_count % 40 == 0):
+        ennemis_liste.append([160, (random.choice(ennemis))])
     return ennemis_liste
 
 
@@ -63,10 +66,12 @@ def ennemis_deplacement(ennemis_liste):
     """déplacement des ennemis vers le haut et suppression s'ils sortent du cadre"""
 
     for ennemi in ennemis_liste:
-        ennemi[1] += 1
-        if  ennemi[1]>120:
+        ennemi[0] -= 2
+        if  ennemi[0]<-8:
             ennemis_liste.remove(ennemi)
     return ennemis_liste
+
+  
 
 # =========================================================
 # == UPDATE
@@ -76,6 +81,8 @@ def update():
 
     global bande1_x, bande1_y
     global bande2_x, bande2_y
+    global  ennemis_liste
+
 
 
     # mise à jour de la position du vaisseau
@@ -84,11 +91,12 @@ def update():
 
     chronometre.update()
   
- # creation des ennemis
+    # creation des ennemis
     ennemis_liste = ennemis_creation(ennemis_liste)
 
     # mise a jour des positions des ennemis
-    ennemis_liste = ennemis_deplacement(ennemis_liste) 
+    ennemis_liste = ennemis_deplacement(ennemis_liste)  
+
     
 # =========================================================
 # == DRAW
@@ -120,9 +128,11 @@ def draw():
 
     pyxel.blt(bande2_x % 160, bande2_y,0,0,16,160,8)
     pyxel.blt((bande2_x % 160) - 160, bande2_y,0,0,16,160,8)
-    
+  
+    # ennemis
     for ennemi in ennemis_liste:
-        pyxel.rect(ennemi[0], ennemi[1], 8, 8, 8)
+        pyxel.rect(ennemi[0], ennemi[1], 8, 8, 8)  
+
 
   
 pyxel.run(update, draw)
