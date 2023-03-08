@@ -1,4 +1,5 @@
 import pyxel
+import random
 
 # taille de la fenetre 160x120 pixels
 # ne pas modifier
