@@ -5,6 +5,8 @@ import pyxel
 pyxel.init(160, 120, title="flipflop")
 pyxel.load("flipflop.pyxres")
 
+ennemis_liste = []
+
 # (origine des positions : coin haut gauche)
 bande1_x = 0
 bande1_y = 30
@@ -46,6 +48,25 @@ chronometre = Chronometre()
 # enclenche le chronomètre
 chronometre.start()
 
+  
+def ennemis_creation(ennemis_liste):
+    """création aléatoire des ennemis"""
+
+    # un ennemi par seconde
+    if (pyxel.frame_count % 30 == 0):
+        ennemis_liste.append([random.randint(0, 120), 0])
+    return ennemis_liste
+
+
+def ennemis_deplacement(ennemis_liste):
+    """déplacement des ennemis vers le haut et suppression s'ils sortent du cadre"""
+
+    for ennemi in ennemis_liste:
+        ennemi[1] += 1
+        if  ennemi[1]>128:
+            ennemis_liste.remove(ennemi)
+    return ennemis_liste
+
 # =========================================================
 # == UPDATE
 # =========================================================
@@ -61,7 +82,13 @@ def update():
     bande2_x, bande2_y = bande_deplacement(bande2_x, bande2_y, VITESSE_BANDE_2)
 
     chronometre.update()
+  
+ # creation des ennemis
+    ennemis_liste = ennemis_creation(ennemis_liste)
 
+    # mise a jour des positions des ennemis
+    ennemis_liste = ennemis_deplacement(ennemis_liste) 
+    
 # =========================================================
 # == DRAW
 # =========================================================
@@ -92,6 +119,9 @@ def draw():
 
     pyxel.blt(bande2_x % 160, bande2_y,0,0,16,160,8)
     pyxel.blt((bande2_x % 160) - 160, bande2_y,0,0,16,160,8)
+    
+    for ennemi in ennemis_liste:
+        pyxel.rect(ennemi[0], ennemi[1], 8, 8, 8)
 
   
 pyxel.run(update, draw)
