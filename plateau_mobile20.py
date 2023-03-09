@@ -24,6 +24,8 @@ ennemis_liste = []
 def bande_deplacement(x, y, vitesse):
     """déplacement de la bande"""
     x = x-vitesse
+    if x<0:
+        x = x+160
     return x, y
 
 class Chronometre:
