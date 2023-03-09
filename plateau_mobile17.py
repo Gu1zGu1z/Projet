@@ -4,7 +4,7 @@ import random
 # taille de la fenetre 160x120 pixels
 # ne pas modifier
 pyxel.init(160, 120, title="flipflop")
-pyxel.load("flipflop.pyxres")
+pyxel.load("flipflop1.pyxres")
 
 
 
