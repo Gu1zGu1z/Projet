@@ -53,23 +53,23 @@ chronometre = Chronometre()
 # enclenche le chronomètre
 chronometre.start()
 
-def ennemis_creation(ennemis_liste):
+def ennemis_creation(ennemis_list):
     """création aléatoire des ennemis"""
 
     # un ennemi par seconde
     if (pyxel.frame_count % 35 == 0):
-        ennemis_liste.append([160, (random.choice(ennemis))])
-    return ennemis_liste
+        ennemis_list.append([160, (random.choice(ennemis))])
+    return ennemis_list
 
 
-def ennemis_deplacement(ennemis_liste):
+def ennemis_deplacement(ennemis_list,vitesse):
     """déplacement des ennemis vers le haut et suppression s'ils sortent du cadre"""
 
-    for ennemi in ennemis_liste:
-        ennemi[0] -= 1
+    for ennemi in ennemis_list:
+        ennemi[0] -= vitesse
         if  ennemi[0]<-8:
-            ennemis_liste.remove(ennemi)
-    return ennemis_liste
+            ennemis_list.remove(ennemi)
+    return ennemis_list
 
   
 
@@ -81,7 +81,7 @@ def update():
 
     global bande1_x, bande1_y
     global bande2_x, bande2_y
-    global  ennemis_liste
+    global ennemis_liste
 
 
 
@@ -95,7 +95,7 @@ def update():
     ennemis_liste = ennemis_creation(ennemis_liste)
 
     # mise a jour des positions des ennemis
-    ennemis_liste = ennemis_deplacement(ennemis_liste)  
+    ennemis_liste = ennemis_deplacement(ennemis_liste,VITESSE_BANDE_1)  
 
     
 # =========================================================
@@ -103,23 +103,26 @@ def update():
 # =========================================================
 def draw():
     """création des objets (30 fois par seconde)"""
-
+    global bande1_x, bande1_y
+    global bande2_x, bande2_y
+    global ennemis_liste
+    
     # vide la fenetre
     pyxel.cls(0)
     
-    """pyxel.blt(a,b,c,d,e,f,g) 
-    a= x 
-    b= y
-    c= quelle fenetre( de l'outil de creation de pyxel)
-    d= position du dessin(x)
-    e= position du dessin(y)
-    f= longeur du dessin
-    g= hauteur du dessin
+    #pyxel.blt(a,b,c,d,e,f,g) 
+    #a= x 
+    #b= y
+    #c= quelle fenetre( de l'outil de creation de pyxel)
+    #d= position du dessin(x)
+    #e= position du dessin(y)
+    #f= longeur du dessin
+    #g= hauteur du dessin
     
-    """
+    
     chronometre.draw()
     
-    """pyxel.blt( 78,300,32,0,8,8)"""
+    #pyxel.blt( 78,300,32,0,8,8)
     # vaisseau (carre 8x8)
     
    # pyxel.blt(ennemis_x, ennemis_y,0,24,9,7,7)
