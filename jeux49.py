@@ -4,6 +4,7 @@ import pyxel
 config = { 
     'taille_x' : 152, \
     'taille_y' : 152, \
+    'taille_ennemi' : 2 \
     'titre' : 'flip flop', \
     'rayon_balle': 2, \
     'niveau_max' : 3, \
@@ -69,7 +70,7 @@ class Ennemi:
 
     def draw(self):
         # charger la boule rouge des ressources
-        pyxel.blt(self.x, y=self.y, img=0, u=32, v=0, w=8, h=8)
+        pyxel.circ(self.x, self.y, config['taille_ennemi'], 2)
 
 
 
