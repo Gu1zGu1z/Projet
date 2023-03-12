@@ -78,7 +78,7 @@ class Jeu:
     def __init__(self):
         # définit la taille de la fenêtre et son titre
         pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
-        pyxel.load("flipflop.pyxres")
+        pyxel.load("flipflop1.pyxres")
         self.balle = Balle(57, 10, 1)
         self.gravite = config['gravite_puissance']
         # tableau des ennemis en jeu
