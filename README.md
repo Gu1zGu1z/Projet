@@ -44,17 +44,18 @@ niveaux :
  - rechercher comment fonctionne la prog orientée objet
  
  
-objectif vacances : 
+objectifs : 
 - ✓ passe completement  sous oriente objet (guillaume) 
 - ✓ faire avancer les decors (margot)
 - ✓ finir le score (clara)
 - ✓ (collision avec les bords de la fenêtre) (guillaume) 
 - (reussir a supprimer l etoile)
 - ✓ (ajouter les bandes )
-- ✓ faire spawn les ennemis ( Guillaume )
-- mettre les deux codes ensembles ( Margot )
-- collision avec les blocs ( Guillaume )
+- 😐 faire spawn les ennemis ( Guillaume / à ameliorer )
+- ✓ mettre les deux codes ensembles ( Margot )
+- collision avec les blocs 
 - ajouter de la musique
+- mettre différents niveaux
          
                      
                 
