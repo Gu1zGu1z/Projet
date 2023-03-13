@@ -49,13 +49,13 @@ objectifs :
 - ✓ faire avancer les decors (margot)
 - ✓ finir le score (clara)
 - ✓ (collision avec les bords de la fenêtre) (guillaume) 
-- (reussir a supprimer l etoile)
 - ✓ (ajouter les bandes )
 - 😐 faire spawn les ennemis ( Guillaume / à ameliorer )
 - ✓ mettre les deux codes ensembles ( Margot )
-- collision avec les blocs 
-- ajouter de la musique
-- mettre différents niveaux
+- collision avec les blocs ( Margot )
+- ajouter de la musique ( Guillaume )
+- mettre différents niveaux ( Guillaume )
+- rajouter les étoiles bonus ( Clara )
          
                      
                 
