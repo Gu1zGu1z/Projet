@@ -53,7 +53,8 @@ objectif vacances :
 - ✓ (ajouter les bandes )
 - ✓ faire spawn les ennemis ( Guillaume )
 - mettre les deux codes ensembles ( Margot )
-- ajouter de la musique ( Guillaume )
+- collision avec les blocs ( Guillaume )
+- ajouter de la musique
          
                      
                 
