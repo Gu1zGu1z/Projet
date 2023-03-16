@@ -134,6 +134,7 @@ class Jeu:
             self.chrono.draw()
             for ennemi in self.ennemis:
                 ennemi.draw()
+            self.chrono.draw()
 
     
     
