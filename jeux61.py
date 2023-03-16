@@ -99,7 +99,7 @@ class Jeu:
             # la balle est donc attirée vers le bas puisque self.y tend vers +∞
 
         # generation d'un nouvel ennemi tous les 50 "frames"
-        if pyxel.frame_count % random.randint(160, 250) == 0:
+        if pyxel.frame_count % (random.randint(160, 250)) == 0:
             self.ennemis.append(Ennemi())
 
         for ennemi in self.ennemis:
