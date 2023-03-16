@@ -60,7 +60,7 @@ class Balle: # création de l'objet de la balle
 class Ennemi:
     def __init__(self):
         self.x = config['taille_x'] - 1
-        self.y = int(config['taille_y'] * 0.75)  # zone d'apparition de l'ennemi
+        self.y = int(config['taille_y'] * 0.50)  # zone d'apparition de l'ennemi
 
     def update(self):
         # l'ennemi se déplace horizontalement
