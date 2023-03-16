@@ -134,9 +134,7 @@ class Jeu:
             self.chrono.draw()
             for ennemi in self.ennemis:
                 ennemi.draw()
-            chronometre.draw()
-
-    
+ 
     
 # https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.jeux
     
