@@ -1,5 +1,5 @@
 import pyxel
-import random
+#import random
 
 # définit les différentes variables
 config = { 
@@ -61,8 +61,7 @@ class Balle: # création de l'objet de la balle
 class Ennemi:
     def __init__(self):
         self.x = config['taille_x'] - 1
-        number = random.randint(0.50, 0.75)
-        self.y = int(config['taille_y'] * number)  # zone d'apparition de l'ennemi  # zone d'apparition de l'ennemi
+        self.y = int(config['taille_y'] * 0.50)  # zone d'apparition de l'ennemi  # zone d'apparition de l'ennemi
 
     def update(self):
         # l'ennemi se déplace horizontalement
