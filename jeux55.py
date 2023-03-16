@@ -131,9 +131,16 @@ class Jeu:
                 pyxel.quit()
         else:
             self.balle.draw()
-            self.chrono.draw()
+            #self.chrono.draw()
+            chronometre.draw()
             for ennemi in self.ennemis:
                 ennemi.draw()
+                
+# crée une instance pour le chronomètre
+chronometre = Chronometre()
+
+# enclenche le chronomètre
+chronometre.start()
  
     
 # https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.jeux
