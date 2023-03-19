@@ -81,7 +81,8 @@ class Balle: # création de l'objet de la balle
           self.y = self.gravite + self.y  # on ajoute l'influence de la gravité à la position verticale de la balle
 
     def draw(self):
-        pyxel.circ(self.x, self.y, config['rayon_balle'], 2)
+        pyxel.circ(self.x, self.y, config['rayon_balle'], 15
+    )
 
 class Ennemi:
     def __init__(self):
@@ -235,7 +236,7 @@ def draw_plateau():
     
     
     chronometre.draw()
-    
+    #######pyxel.blt(128,91,1,0,3,32,29)
     #pyxel.blt( 78,300,32,0,8,8)
     # vaisseau (carre 8x8)
     
@@ -243,18 +244,21 @@ def draw_plateau():
     pyxel.blt(bande1_x % TAILLE_FENETRE_X, bande1_y,0,0,16,TAILLE_FENETRE_X,HAUTEUR_BANDE)
     pyxel.blt((bande1_x % TAILLE_FENETRE_X) - TAILLE_FENETRE_X, bande1_y,0,0,16,TAILLE_FENETRE_X,HAUTEUR_BANDE)
 
-    pyxel.blt(bande2_x % TAILLE_FENETRE_X, bande2_y,0,0,16,TAILLE_FENETRE_X,HAUTEUR_BANDE)
-    pyxel.blt((bande2_x % TAILLE_FENETRE_X) - TAILLE_FENETRE_X, bande2_y,0,0,16,TAILLE_FENETRE_X,HAUTEUR_BANDE)
+    pyxel.blt(bande2_x % TAILLE_FENETRE_X, bande2_y,0,0,16,TAILLE_FENETRE_X,-HAUTEUR_BANDE)
+    pyxel.blt((bande2_x % TAILLE_FENETRE_X) - TAILLE_FENETRE_X, bande2_y,0,0,16,TAILLE_FENETRE_X,-HAUTEUR_BANDE)
   
 
 def draw_ennemis():
 # ennemis
     for ennemi in ennemis_liste:
-        pyxel.rect(ennemi[0], ennemi[1], 8, 8, 12)  
+        #pyxel.rect(ennemi[0], ennemi[1], 8, 8, 12)  
+        if ennemi[1]== 38 :
+            pyxel.blt(ennemi[0],ennemi[1],0,16,0,8,8)
+        else :
+            pyxel.blt(ennemi[0],ennemi[1],0,16,8,8,8)
 
 
   
 #pyxel.run(update, draw)
 Jeu()
-
-# https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.plateau_mobile
+# https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.flipflop
