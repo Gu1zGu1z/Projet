@@ -32,8 +32,8 @@ bande1_y = 30
 bande2_x = 0
 bande2_y = 90
 
-VITESSE_BANDE_1 = 1
-VITESSE_BANDE_2 = 1
+VITESSE_BANDE_1 = 2
+VITESSE_BANDE_2 = 2
 
 ennemis = [38,82]
 # initialisation des ennemis
