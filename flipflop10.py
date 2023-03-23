@@ -176,7 +176,7 @@ def ennemis_creation(ennemis_list):
     """création aléatoire des ennemis"""
 
     # un ennemi par seconde
-    if (pyxel.frame_count % 25 == 0):
+    if (pyxel.frame_count % 22 == 0):
         ennemis_list.append([TAILLE_FENETRE_X, (random.choice(ennemis))])
     return ennemis_list
 
