@@ -164,10 +164,9 @@ class Jeu:
 
         #print(f'balle=({self.balle.x, self.balle.y})')
         
-        if not self.game_over():
-            self.balle.gravite = self.gravite
-            self.balle.update()
-            self.chrono.update()
+        self.balle.gravite = self.gravite
+        self.balle.update()
+        self.chrono.update()
             
     def test_borders(self):
         if self.balle.y < 0 or self.balle.y >= config['taille_y']:
