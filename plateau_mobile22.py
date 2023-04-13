@@ -7,6 +7,10 @@ TAILLE_FENETRE_X = 160
 TAILLE_FENETRE_Y = 160
 HAUTEUR_BANDE = 8
 
+ETAT_EN_JEU = 0
+ETAT_PAUSE = 1
+ETAT_FIN = 2
+
 #pyxel.init(TAILLE_FENETRE_X, TAILLE_FENETRE_Y, title="flipflop")
 #pyxel.load("flipflop1.pyxres")
 
@@ -107,12 +111,22 @@ class Jeu:
         pyxel.load("flipflop1.pyxres")
         self.balle = Balle(60, 60, 1)
         self.gravite = config['gravite_puissance']
+        self.etat = ETAT_EN_JEU
         # tableau des ennemis en jeu
         self.ennemis = []
         # création du chronomètre
         self.chrono = Chronometre()
-        pyxel.run(self.update, self.draw)
         self.chrono.start()
+        pyxel.run(self.update, self.draw)
+        
+    def toggle_pause(self):
+        # on passe dans le mode pause si on n'y était pas
+        # on le quitte si on y était
+        if self.etat == ETAT_EN_JEU:
+            self.etat = ETAT_PAUSE
+        elif self.etat == ETAT_PAUSE:
+            self.etat = ETAT_EN_JEU
+        
    
     def update(self):
         update_plateau()
@@ -124,6 +138,19 @@ class Jeu:
         elif pyxel.btnp(pyxel.KEY_DOWN):
             self.gravite = config['gravite_puissance'] # lorsque la touche de direction "bas" est pressée, la gravité prend une valeur positive.
             # la balle est donc attirée vers le bas puisque self.y tend vers +∞
+        elif pyxel.btnp(pyxel.KEY_P):
+            # lorsque le bouton P est appuyé: entrer/quitter le mode pause
+            self.toggle_pause()
+        elif pyxel.btnp(pyxel.KEY_Q) or (pyxel.btnp(pyxel.KEY_RETURN) and self.etat == ETAT_FIN):
+            # fin du jeu
+            pyxel.quit()
+            
+        if self.etat == ETAT_PAUSE:
+            return
+        
+        self.test_borders()
+        if self.etat == ETAT_FIN:
+            return
 
         # generation d'un nouvel ennemi tous les 50 "frames"
         if pyxel.frame_count % 50 == 0:
@@ -141,6 +168,15 @@ class Jeu:
             self.balle.gravite = self.gravite
             self.balle.update()
             self.chrono.update()
+            
+    def test_borders(self):
+        if self.balle.y < 0 or self.balle.y >= config['taille_y']:
+            # la balle a dépassé les bords
+            self.etat = ETAT_FIN
+            
+    def display_pause(self):
+        pyxel.text(50, 80, 'En Pause', 7)
+        pyxel.text(20, 100, 'Appuyez sur P pour reprendre', 7)
 
     def game_over(self):
         if self.balle.y < 0 or self.balle.y >= config['taille_y']:
