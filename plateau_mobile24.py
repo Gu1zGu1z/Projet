@@ -187,16 +187,11 @@ class Jeu:
             return self.display_gameover()
         if self.etat == ETAT_PAUSE:
             return self.display_pause()
-        else:
-            draw_plateau()
-            draw_ennemis()
-            chronometre.draw()
-            self.balle.draw()
-            #self.chrono.draw()
-            
-            #for ennemi in self.ennemis:
-            #    ennemi.draw()
-
+        pyxel.cls(0)
+        self.balle.draw()
+        self.chrono.draw()
+        for ennemi in self.ennemis:
+            ennemi.draw()
 # crée une instance pour le chronomètre
 chronometre = Chronometre()
 
