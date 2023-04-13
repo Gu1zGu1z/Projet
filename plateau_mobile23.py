@@ -174,24 +174,19 @@ class Jeu:
             # la balle a dépassé les bords
             self.etat = ETAT_FIN
             
+    def display_gameover(self):
+        pyxel.text(50, 80, "Game Over", 7)
+        pyxel.text(30, 100, "Appuyez sur ENTRER", 7)
+
     def display_pause(self):
         pyxel.text(50, 80, 'En Pause', 7)
         pyxel.text(20, 100, 'Appuyez sur P pour reprendre', 7)
 
-    def game_over(self):
-        if self.balle.y < 0 or self.balle.y >= config['taille_y']:
-            # la balle a dépassé les bords
-            return True
-        
-        return False
-
     def draw(self):
-        pyxel.cls(0)
-        if self.game_over():
-            pyxel.text(50, 80, "Game Over", 7)
-            pyxel.text(30, 100, "Appuyez sur ENTRER", 7)
-            if pyxel.btn(pyxel.KEY_RETURN):
-                pyxel.quit()
+        if self.etat == ETAT_FIN:
+            return self.display_gameover()
+        if self.etat == ETAT_PAUSE:
+            return self.display_pause()
         else:
             draw_plateau()
             draw_ennemis()
