@@ -128,16 +128,16 @@ class TirEnnemi:
         pyxel.circ(self.x, self.y, config['taille_ennemi'], 2)
 
 class Bande:
-    def __init__(self, x=0, y=50, offset_obstacle=HAUTEUR_BANDE):
+    def __init__(self, x=0, y=50, modif_obstacle=HAUTEUR_BANDE):
         # il s'agit des plateaux défilants (soit celui du haut, soit celui du bas)
         self.vitesse = 1  # vitesse de défilement du plateau
         # coordonnées du plateau - origine = coin haut gauche
         self.x = x  
         self.y = y  
         self.obstacles = []  # liste des obstacles sur la bande
-        # pour créer des obstacles au dessus de la bande, on utilise un offset positif de la hauteur de la bande
-        # pour créer l'obstacle en dessous, offset negatif
-        self.offset_obstacle = offset_obstacle
+        # pour créer des obstacles au dessus de la bande, on utilise une valeur positive de la hauteur de la bande
+        # pour créer l'obstacle en dessous, modif negatif
+        self.modif_obstacle = modif_obstacle
         
     def deplacement_bande(self):
         self.x = self.x - self.vitesse
@@ -145,7 +145,7 @@ class Bande:
             self.x = self.x + TAILLE_FENETRE_W
 
     def creation_obstacle(self):
-        y = self.y + self.offset_obstacle
+        y = self.y + self.modif_obstacle
         self.obstacles.append([TAILLE_FENETRE_W, y])
         # print(f'creation_obstacle ({TAILLE_FENETRE_W}, {y})')
 
@@ -170,7 +170,7 @@ class Bande:
 
     def draw_obstacles(self):
         for obstacle in self.obstacles:
-            if self.offset_obstacle > 0 :
+            if self.modif_obstacle > 0 :
                 pyxel.blt(obstacle[0],obstacle[1],0,16,0,8,8)
             else :
                 pyxel.blt(obstacle[0],obstacle[1],0,16,8,8,8)
