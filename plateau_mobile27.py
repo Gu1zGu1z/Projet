@@ -115,7 +115,7 @@ class Balle:
 class TirEnnemi:
     def __init__(self, min_y, max_y, vitesse):
         self.x = config['taille_x'] - 1
-        self.y = random.randint(min_y, max_y)  # zone d'apparition de l'ennemi
+        self.y = random.randint(min_y + config['taille_ennemi'], max_y - config['taille_ennemi'])  # zone d'apparition de l'ennemi
         self.vitesse = vitesse
 
     def update(self):
