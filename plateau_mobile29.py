@@ -191,7 +191,7 @@ class Jeu:
         # balle du joueur
         self.balle = Balle(60, 60, min_y=config['bande1_y'], max_y=config['bande2_y'], gravite=config['gravite'])
         # tableau des boules ennemies en jeu
-        self.ennemis = []
+        self.tirs_ennemis = []
         # création du chronomètre
         self.chrono = Chronometre()
         # niveau
@@ -236,15 +236,15 @@ class Jeu:
 
         # generation d'un nouvel ennemi tous les x "frames"
         if pyxel.frame_count % config['frequence_ennemi'] == 0:
-            self.ennemis.append(TirEnnemi(min_y=config['bande1_y'] + HAUTEUR_BANDE, 
+            self.tirs_ennemis.append(TirEnnemi(min_y=config['bande1_y'] + HAUTEUR_BANDE, 
                                              max_y=config['bande2_y'] - HAUTEUR_BANDE,
                                              vitesse=config['vitesse_ennemis']))
 
-        for ennemi in self.ennemis:
+        for ennemi in self.tirs_ennemis:
             ennemi.update()
             # si l'ennemi a parcouru toute la largeur, on l'efface
             if ennemi.x <= 0:
-                self.ennemis.remove(ennemi)
+                self.tirs_ennemis.remove(ennemi)
 
         # generation d'un obstacle tous les xx, au hasard sur une des deux bandes
         if (pyxel.frame_count % config['frequence_obstacle'] == 0):
@@ -262,7 +262,7 @@ class Jeu:
         A FAIRE : Clara
         collision avec un obstacle: utiliser self.bande1.obstacles et self.bande2.obstacles 
         par rapport à la balle (self.balle.x, self.balle.y)
-        collision avec un tir: utiliser self.ennemis par rapport à self.balle.x, self.balle y
+        collision avec un tir: utiliser self.tirs_ennemis par rapport à self.balle.x, self.balle y
 
         Si collision, passer config['etat'] = ETAT_FIN
         '''
@@ -291,7 +291,7 @@ class Jeu:
         self.chrono.draw()
         self.niveau.draw()
         
-        for ennemi in self.ennemis:
+        for ennemi in self.tirs_ennemis:
             ennemi.draw()
 
 Jeu()
