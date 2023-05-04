@@ -180,7 +180,7 @@ class Bande:
         self.draw_obstacles()
 
         
-class Fond:
+'''class Fond:
     for y in [0,30,65,100]:
         for x in range(0,129,32):
             pyxel.blt(x,y,1,8,46,32,43) # ciel etoilé 
@@ -198,7 +198,7 @@ class Fond:
     pyxel.blt(110,121,1,56,31,7,7) # etoile ronde bas droite
     pyxel.blt(40,105,1,48,27,6,6) # etoile carré bas gauche
     pyxel.blt(150,33,1,48,27,6,6) # etoile carré haut droite
-
+'''
 
     
 class Jeu:
