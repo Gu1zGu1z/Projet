@@ -279,46 +279,7 @@ class Jeu:
         pyxel.text(20, 80, 'Appuyez sur P pour reprendre', 7)
         
         
-   ''' def draw fond 
-         pyxel.blt(0,0,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(32,0,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(64,0,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(96,0,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(128,0,1,8,46,32,43) # ciel etoilé
-    
-         pyxel.blt(0,30,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(32,30,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(64,30,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(96,30,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(128,30,1,8,46,32,43) # ciel etoilé
-    
-         pyxel.blt(0,65,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(32,70,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(64,65,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(96,70,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(128,65,1,8,46,32,43) # ciel etoilé
-    
-         pyxel.blt(0,100,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(32,100,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(64,100,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(96,100,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(128,100,1,8,46,32,43) # ciel etoilé
-    
-    
-
-         pyxel.blt(0,0,1,16,96,20,20) # planete avec ronds
-         pyxel.blt(128,108,1,0,0,32,32) # planete anneau
-         pyxel.blt(40,25,1,80,16,16,16) # planete terre
-         pyxel.blt(10,102,1,70,56,19,19) # planete avec traits
-         pyxel.blt(120,11,1,44,92,24,24) # soleil
-         pyxel.blt(7,30,1,56,31,7,7) # etoile ronde gauche haut
-         pyxel.blt(57,16,1,56,31,7,7) # etoile ronde haut terre
-         pyxel.blt(110,121,1,56,31,7,7) # etoile ronde bas droite
-         pyxel.blt(40,105,1,48,27,6,6) # etoile carré bas gauche
-         pyxel.blt(150,33,1,48,27,6,6) # etoile carré haut droite
-         '''
-          
-
+  
     def draw(self):
         
         
