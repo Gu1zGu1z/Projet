@@ -79,7 +79,7 @@ class Niveau:
 
     def draw(self):
         
-         pyxel.blt(0,0,1,8,46,32,43) # ciel etoilé 
+        pyxel.blt(0,0,1,8,46,32,43) # ciel etoilé 
         pyxel.blt(32,0,1,8,46,32,43) # ciel etoilé 
         pyxel.blt(64,0,1,8,46,32,43) # ciel etoilé 
         pyxel.blt(96,0,1,8,46,32,43) # ciel etoilé 
