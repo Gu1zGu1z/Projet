@@ -279,7 +279,7 @@ class Jeu:
         pyxel.text(20, 80, 'Appuyez sur P pour reprendre', 7)
         
         
-   ''' def draw fond :
+   ''' def draw fond 
          pyxel.blt(0,0,1,8,46,32,43) # ciel etoilé 
          pyxel.blt(32,0,1,8,46,32,43) # ciel etoilé 
          pyxel.blt(64,0,1,8,46,32,43) # ciel etoilé 
@@ -340,11 +340,11 @@ class Jeu:
         pyxel.blt(96,70,1,8,46,32,43) # ciel etoilé 
         pyxel.blt(128,65,1,8,46,32,43) # ciel etoilé
     
-         pyxel.blt(0,100,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(32,100,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(64,100,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(96,100,1,8,46,32,43) # ciel etoilé 
-         pyxel.blt(128,100,1,8,46,32,43) # ciel etoilé
+        pyxel.blt(0,100,1,8,46,32,43) # ciel etoilé 
+        pyxel.blt(32,100,1,8,46,32,43) # ciel etoilé 
+        pyxel.blt(64,100,1,8,46,32,43) # ciel etoilé 
+        pyxel.blt(96,100,1,8,46,32,43) # ciel etoilé 
+        pyxel.blt(128,100,1,8,46,32,43) # ciel etoilé
     
     
 
