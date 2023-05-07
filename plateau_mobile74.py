@@ -22,7 +22,7 @@ config = {
     'score' : 0, \
     'balle_max' : TAILLE_FENETRE_H, \
     'balle_min' : 37, \
-    'gravite' : 2, \
+    'gravite' : 3, \
     'bande1_y' : 50, \
     'bande2_y' : 105, \
     'vitesse_ennemis' : 2, \
