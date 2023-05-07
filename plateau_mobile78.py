@@ -62,14 +62,13 @@ class Niveau:
         self.bande2 = bande2
         
         
-        # gravité initiale de la balle
-        self.gravite = gravite
+      
 
     def update(self):
         if self.chrono.time > self.chrono_precedent and (self.chrono.time % config['frequence_niveau']) == 0:
             self.niveau += 1
             # change de niveau
-            self.gravite += 1
+            gravite += 1
             # incremente la vitesse de gravite de la balle a chaque niveau
             # noter chrono_precedent est utile sinon on n'arrive jamais à sortir du pause level up
             # parce qu'on retombe direct dedans
@@ -101,7 +100,7 @@ class Balle:
         self.max_y = max_y
 
         # gravité initiale de la balle
-        #self.gravite = gravite
+        self.gravite = gravite
 
     def update(self):
         # cette fonction permet de mettre en mouvement la balle en fonction de la gravité.
