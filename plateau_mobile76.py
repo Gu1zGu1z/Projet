@@ -22,7 +22,7 @@ config = {
     'score' : 0, \
     'balle_max' : TAILLE_FENETRE_H, \
     'balle_min' : 37, \
-    'gravite' : 3, \
+    'gravite' : 2, \
     'bande1_y' : 50, \
     'bande2_y' : 105, \
     'vitesse_ennemis' : 2, \
@@ -65,7 +65,7 @@ class Niveau:
         if self.chrono.time > self.chrono_precedent and (self.chrono.time % config['frequence_niveau']) == 0:
             self.niveau += 1
             # change de niveau
-            self.gravité += 0,5
+            self.gravité += 1
             # incremente la vitesse de gravite de la balle a chaque niveau
             # noter chrono_precedent est utile sinon on n'arrive jamais à sortir du pause level up
             # parce qu'on retombe direct dedans
