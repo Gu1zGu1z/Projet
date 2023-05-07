@@ -60,6 +60,10 @@ class Niveau:
         self.chrono_precedent = 0
         self.bande1 = bande1
         self.bande2 = bande2
+        
+        
+        # gravité initiale de la balle
+        self.gravite = gravite
 
     def update(self):
         if self.chrono.time > self.chrono_precedent and (self.chrono.time % config['frequence_niveau']) == 0:
@@ -97,7 +101,7 @@ class Balle:
         self.max_y = max_y
 
         # gravité initiale de la balle
-        self.gravite = gravite
+        #self.gravite = gravite
 
     def update(self):
         # cette fonction permet de mettre en mouvement la balle en fonction de la gravité.
