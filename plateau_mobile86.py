@@ -343,6 +343,6 @@ class Jeu:
             ennemi.draw()
             
             
-     Jeu()
+Jeu()
 
 # https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.plateau_mobile
