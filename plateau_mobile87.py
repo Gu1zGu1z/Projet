@@ -305,7 +305,6 @@ class Jeu:
             distance = sqrt((obstacle[0]-self.balle.x)**2 + (obstacle[1]-self.balle.y)**2)
             #print ("distance =",distance)
             if (distance < (config['rayon_balle'] + config['rayon_obstacle'])) :
-                pyxel.text(50, 40, "colision ",7)
                 #collision detection
                 config['etat'] = ETAT_FIN
                 
