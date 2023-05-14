@@ -1,5 +1,6 @@
 import pyxel
 import random
+from math import *
 
 # constantes
 # taille de la fenetre TAILLE_FENETRE_W x TAILLE_FENETRE_H pixels
@@ -29,7 +30,8 @@ config = {
     'etat' : ETAT_EN_JEU, \
     'frequence_obstacle' : 22, \
     'frequence_ennemi' : 50, \
-    'frequence_niveau' : 500
+    'frequence_niveau' : 500, \
+    'rayon_obstacle' : 3
 }
 
 class Chronometre:
@@ -291,11 +293,32 @@ class Jeu:
         Si collision, passer config['etat'] = ETAT_FIN
         '''
         # Pour l'instant, on ne fait rien
-        pass
+        for obstacle in (self.bande1.obstacles) :
+            distance = sqrt((obstacle[0]-self.balle.x)**2 + (obstacle[1]-self.balle.y)**2)
+            #print ("distance =",distance)
+            if (distance < (config['rayon_balle'] + config['rayon_obstacle'])) :
+                pyxel.text(50, 40, "colision ",7)
+                #collision detection
+                config['etat'] = ETAT_FIN
+                
+        for obstacle in (self.bande2.obstacles) :
+            distance = sqrt((obstacle[0]-self.balle.x)**2 + (obstacle[1]-self.balle.y)**2)
+            #print ("distance =",distance)
+            if (distance < (config['rayon_balle'] + config['rayon_obstacle'])) :
+                pyxel.text(50, 40, "colision ",7)
+                #collision detection
+                config['etat'] = ETAT_FIN
+                
+                
+        for ennemi in (self.tirs_ennemis) :
+            distance = sqrt((ennemi.x-self.balle.x)**2 + (ennemi.y-self.balle.y)**2)
+            #print ("distance =",distance)
+            if (distance < (config['rayon_balle'] + config['taille_ennemi'])) :
+                #collision detection
+                config['etat'] = ETAT_FIN
     
-            
     def display_gameover(self):
-        pyxel.text(50, 40, "Game Over", 7)
+        pyxel.text(50, 40, "Game Over", 8)
         pyxel.text(30, 100, "Appuyez sur ENTRER", 7)
 
     def display_pause(self):
@@ -320,7 +343,6 @@ class Jeu:
             ennemi.draw()
             
             
-     
+     Jeu()
 
-Jeu()
 # https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.plateau_mobile
