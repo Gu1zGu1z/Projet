@@ -55,10 +55,11 @@ objectifs :
 - ✓ ajouter dans la classe balle un self.exist booléen pour eviter update et draw si la balle est morte (Guillaume)
 - ✓ dans le update de jeu, appelle à balle.game_over() (Guillaume)
 - ✓ mettre les deux codes ensembles ( Margot )
-- collision avec les blocs ( Clara )
-- mettre les deux codes ensemble ( Guillaume )
+- ✓ collision avec les blocs ( Clara )
+- ✓ collisions avec ennemos ( Margot )
+- ✓ mettre les deux codes ensemble ( Guillaume )
 - ajouter de la musique ( Guillaume )
-- mettre différents niveaux ( Guillaume )
+- ✓ mettre différents niveaux ( Guillaume )
 - rajouter les étoiles bonus ( Clara )
          
                      
