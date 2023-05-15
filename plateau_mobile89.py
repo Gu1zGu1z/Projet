@@ -208,6 +208,11 @@ class Bande:
     
 class Jeu:
     def __init__(self):
+        self.raz()
+        self.chrono.start()
+        pyxel.run(self.update, self.draw)
+        
+    def raz(self):
         # définit la taille de la fenêtre et son titre
         pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
         pyxel.load("flipflop1.pyxres")
@@ -223,8 +228,6 @@ class Jeu:
         # niveau
         self.niveau = Niveau(self.chrono, self.bande1, self.bande2)
         # démarrage
-        self.chrono.start()
-        pyxel.run(self.update, self.draw)
         
     def toggle_pause(self):
         # on passe dans le mode pause si on n'y était pas
