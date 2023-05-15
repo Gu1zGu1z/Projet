@@ -31,7 +31,7 @@ config = {
     'frequence_obstacle' : 22, \
     'frequence_ennemi' : 50, \
     'frequence_niveau' : 500, \
-    'rayon_obstacle' : 3
+    'rayon_obstacle' : 2
 }
 
 class Chronometre:
@@ -53,7 +53,7 @@ class Chronometre:
 
     def draw(self):
         minutes, seconds = divmod(self.time, 60)
-        pyxel.text(90, 5, f"Score: {minutes:02}{seconds:02}", 7)
+        pyxel.text(90, 5, f"Score: {minutes:02}{seconds:02}", 13)
 
 class Niveau:
     def __init__(self, chrono, bande1, bande2):
@@ -69,7 +69,7 @@ class Niveau:
             # noter chrono_precedent est utile sinon on n'arrive jamais à sortir du pause level up
             # parce qu'on retombe direct dedans
             self.chrono_precedent = self.chrono.time
-            pyxel.text(50, 20, f'Level up!', 7)
+            pyxel.text(66, 20, f'Level up!', 8)
             config['etat'] = ETAT_PAUSE
             # soit on accélère les balles ennemies
             # soit on accélère les bandes
@@ -84,7 +84,7 @@ class Niveau:
 
     def draw(self):
       # affichage du numéro du niveau sur la meme ligne que le score (chrono)
-        pyxel.text(40, 5, f"Niveau: {self.niveau:02}", 7)
+        pyxel.text(40, 5, f"Niveau: {self.niveau:02}", 13)
         
 class Balle: 
     def __init__(self, x, y, min_y, max_y, gravite):
@@ -115,12 +115,12 @@ class Balle:
 
     def draw(self):
         # option possible: affichage d'une ressource pour la balle
-        pyxel.circ(self.x, self.y, config['rayon_balle'], 15)
+        pyxel.circ(self.x, self.y, config['rayon_balle'], 14)
 
 class TirEnnemi:
     def __init__(self, min_y, max_y, vitesse):
         self.x = config['taille_x'] - 1
-        self.y = random.randint(min_y + config['taille_ennemi'], max_y - config['taille_ennemi'])  # zone d'apparition de l'ennemi
+        self.y = random.randint(min_y + config['taille_ennemi']+10, max_y - config['taille_ennemi']-10)  # zone d'apparition de l'ennemi
         self.vitesse = vitesse
 
     def update(self):
@@ -130,7 +130,7 @@ class TirEnnemi:
             self.x = 0
 
     def draw(self):
-        pyxel.circ(self.x, self.y, config['taille_ennemi'], 2)
+        pyxel.circ(self.x, self.y, config['taille_ennemi'],random.randint(1,10))
 
 class Bande:
     def __init__(self, x=0, y=50, modif_obstacle=HAUTEUR_BANDE):
@@ -183,36 +183,13 @@ class Bande:
     def draw(self):
         self.draw_bande()
         self.draw_obstacles()
-
-        
-'''class Fond:
-    for y in [0,30,65,100]:
-        for x in range(0,129,32):
-            pyxel.blt(x,y,1,8,46,32,43) # ciel etoilé 
-   
     
-   
+        
 
-    pyxel.blt(0,0,1,16,96,20,20) # planete avec ronds
-    pyxel.blt(128,108,1,0,0,32,32) # planete anneau
-    pyxel.blt(40,25,1,80,16,16,16) # planete terre
-    pyxel.blt(10,102,1,70,56,19,19) # planete avec traits
-    pyxel.blt(120,11,1,44,92,24,24) # soleil
-    pyxel.blt(7,30,1,56,31,7,7) # etoile ronde gauche haut
-    pyxel.blt(57,16,1,56,31,7,7) # etoile ronde haut terre
-    pyxel.blt(110,121,1,56,31,7,7) # etoile ronde bas droite
-    pyxel.blt(40,105,1,48,27,6,6) # etoile carré bas gauche
-    pyxel.blt(150,33,1,48,27,6,6) # etoile carré haut droite
-'''
 
     
 class Jeu:
     def __init__(self):
-        self.raz()
-        self.chrono.start()
-        pyxel.run(self.update, self.draw)
-        
-    def raz(self):
         # définit la taille de la fenêtre et son titre
         pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
         pyxel.load("flipflop1.pyxres")
@@ -228,6 +205,8 @@ class Jeu:
         # niveau
         self.niveau = Niveau(self.chrono, self.bande1, self.bande2)
         # démarrage
+        self.chrono.start()
+        pyxel.run(self.update, self.draw)
         
     def toggle_pause(self):
         # on passe dans le mode pause si on n'y était pas
@@ -287,14 +266,7 @@ class Jeu:
         self.chrono.update()
 
     def test_collision(self):
-        '''
-        A FAIRE : Clara
-        collision avec un obstacle: utiliser self.bande1.obstacles et self.bande2.obstacles 
-        par rapport à la balle (self.balle.x, self.balle.y)
-        collision avec un tir: utiliser self.tirs_ennemis par rapport à self.balle.x, self.balle y
-
-        Si collision, passer config['etat'] = ETAT_FIN
-        '''
+        
         # Pour l'instant, on ne fait rien
         for obstacle in (self.bande1.obstacles) :
             distance = sqrt((obstacle[0]-self.balle.x)**2 + (obstacle[1]-self.balle.y)**2)
@@ -319,15 +291,27 @@ class Jeu:
                 config['etat'] = ETAT_FIN
     
     def display_gameover(self):
-        pyxel.text(50, 40, "Game Over", 8)
-        pyxel.text(30, 100, "Appuyez sur ENTRER", 7)
-            
+        pyxel.text(61, 37, "GAME OVER !", 8)
+        pyxel.text(45, 136, "Appuyez sur ENTRER", 8)
 
     def display_pause(self):
-        pyxel.text(50, 40, 'En Pause', 7)
-        pyxel.text(20, 80, 'Appuyez sur P pour reprendre', 7)
+        pyxel.text(67, 39, 'En Pause', 8)
+        pyxel.text(20, 80, 'Appuyez sur P pour reprendre', 8)
         
-        
+    def draw_stars(self):
+        for y in [0,30,65,100,130]:
+            for x in range(0,129,32):
+                pyxel.blt(x,y,1,8,46,32,43) # ciel etoilé 
+        pyxel.blt(0,0,1,16,96,20,20) # planete avec ronds
+        pyxel.blt(128,128,1,0,0,32,32) # planete anneau
+        pyxel.blt(40,25,1,80,16,16,16) # planete terre
+        pyxel.blt(10,122,1,70,56,19,19) # planete avec traits
+        pyxel.blt(120,11,1,44,92,24,24) # soleil
+        pyxel.blt(7,30,1,56,31,7,7) # etoile ronde gauche haut
+        pyxel.blt(57,16,1,56,31,7,7) # etoile ronde haut terre
+        pyxel.blt(110,121,1,56,31,7,7) # etoile ronde bas droite
+        pyxel.blt(40,125,1,48,27,6,6) # etoile carré bas gauche
+        pyxel.blt(150,33,1,48,27,6,6) # etoile carré haut droite
   
     def draw(self):
         if config['etat'] == ETAT_FIN:
@@ -335,6 +319,7 @@ class Jeu:
         if config['etat'] == ETAT_PAUSE:
             return self.display_pause()
         pyxel.cls(0)
+        self.draw_stars()
         self.bande1.draw()
         self.bande2.draw()
         self.balle.draw()
@@ -344,7 +329,8 @@ class Jeu:
         for ennemi in self.tirs_ennemis:
             ennemi.draw()
             
-            
 Jeu()
+
+
 
 # https://kitao.github.io/pyxel/wasm/launcher/?run=Gu1zGu1z.Projet.plateau_mobile
