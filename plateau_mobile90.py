@@ -321,6 +321,9 @@ class Jeu:
     def display_gameover(self):
         pyxel.text(50, 40, "Game Over", 8)
         pyxel.text(30, 100, "Appuyez sur ENTRER", 7)
+        if pyxel.btnp(pyxel.KEY_BACKSPACE):
+            self.raz()
+            
 
     def display_pause(self):
         pyxel.text(50, 40, 'En Pause', 7)
