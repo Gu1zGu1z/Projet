@@ -211,6 +211,8 @@ class Jeu:
         self.raz()
         self.chrono.start()
         pyxel.run(self.update, self.draw)
+        if pyxel.btnp(pyxel.KEY_BACKSPACE):
+            self.raz()
         
     def raz(self):
         # définit la taille de la fenêtre et son titre
@@ -321,8 +323,6 @@ class Jeu:
     def display_gameover(self):
         pyxel.text(50, 40, "Game Over", 8)
         pyxel.text(30, 100, "Appuyez sur ENTRER", 7)
-        if pyxel.btnp(pyxel.KEY_BACKSPACE):
-            self.raz()
             
 
     def display_pause(self):
