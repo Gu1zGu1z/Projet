@@ -185,7 +185,27 @@ class Bande:
         self.draw_obstacles()
     
         
+"""class Fond:
+    for y in [0,30,65,100]:
+        for x in range(0,129,32):
+            pyxel.blt(x,y,1,8,46,32,43) # ciel etoilé 
+            
+   
+    
+   
 
+   def draw(self):
+        pyxel.blt(0,0,1,16,96,20,20) # planete avec ronds
+        pyxel.blt(128,108,1,0,0,32,32) # planete anneau
+        pyxel.blt(40,25,1,80,16,16,16) # planete terre
+        pyxel.blt(10,102,1,70,56,19,19) # planete avec traits
+        pyxel.blt(120,11,1,44,92,24,24) # soleil
+        pyxel.blt(7,30,1,56,31,7,7) # etoile ronde gauche haut
+        pyxel.blt(57,16,1,56,31,7,7) # etoile ronde haut terre
+        pyxel.blt(110,121,1,56,31,7,7) # etoile ronde bas droite
+        pyxel.blt(40,105,1,48,27,6,6) # etoile carré bas gauche
+        pyxel.blt(150,33,1,48,27,6,6) # etoile carré haut droite
+        """
 
     
 class Jeu:
@@ -266,7 +286,14 @@ class Jeu:
         self.chrono.update()
 
     def test_collision(self):
-        
+        '''
+        A FAIRE : Clara
+        collision avec un obstacle: utiliser self.bande1.obstacles et self.bande2.obstacles 
+        par rapport à la balle (self.balle.x, self.balle.y)
+        collision avec un tir: utiliser self.tirs_ennemis par rapport à self.balle.x, self.balle y
+
+        Si collision, passer config['etat'] = ETAT_FIN
+        '''
         # Pour l'instant, on ne fait rien
         for obstacle in (self.bande1.obstacles) :
             distance = sqrt((obstacle[0]-self.balle.x)**2 + (obstacle[1]-self.balle.y)**2)
