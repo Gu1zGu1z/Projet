@@ -7,10 +7,13 @@ from math import *
 TAILLE_FENETRE_W = 160
 TAILLE_FENETRE_H = 160
 HAUTEUR_BANDE = 8
+DIAMETRE_EXPLOSION = 20
 
 ETAT_EN_JEU = 0
 ETAT_PAUSE = 1
 ETAT_FIN = 2
+ETAT_COLLISION = 3
+
 
 # définit les différentes variables
 config = { 
@@ -224,6 +227,8 @@ class Jeu:
         self.chrono = Chronometre()
         # niveau
         self.niveau = Niveau(self.chrono, self.bande1, self.bande2)
+        #Explosion
+        self.explosion=[]
         # démarrage
         self.chrono.start()
         pyxel.run(self.update, self.draw)
@@ -280,43 +285,51 @@ class Jeu:
             bande.creation_obstacle()
 
         #print(f'balle=({self.balle.x, self.balle.y})')
-        self.balle.update()
-        self.bande1.update()
-        self.bande2.update()
-        self.chrono.update()
+        if (config['etat'] != ETAT_COLLISION):
+           self.balle.update()
+           self.bande1.update()
+           self.bande2.update()
+           self.chrono.update()
 
     def test_collision(self):
-        '''
-        A FAIRE : Clara
-        collision avec un obstacle: utiliser self.bande1.obstacles et self.bande2.obstacles 
-        par rapport à la balle (self.balle.x, self.balle.y)
-        collision avec un tir: utiliser self.tirs_ennemis par rapport à self.balle.x, self.balle y
+        if config['etat'] == ETAT_FIN:
+            return
 
-        Si collision, passer config['etat'] = ETAT_FIN
-        '''
-        # Pour l'instant, on ne fait rien
         for obstacle in (self.bande1.obstacles) :
             distance = sqrt((obstacle[0]-self.balle.x)**2 + (obstacle[1]-self.balle.y)**2)
             #print ("distance =",distance)
             if (distance < (config['rayon_balle'] + config['rayon_obstacle'])) :
                 #collision detection
-                config['etat'] = ETAT_FIN
-                
+                config['etat'] = ETAT_COLLISION
+
+
         for obstacle in (self.bande2.obstacles) :
             distance = sqrt((obstacle[0]-self.balle.x)**2 + (obstacle[1]-self.balle.y)**2)
             #print ("distance =",distance)
             if (distance < (config['rayon_balle'] + config['rayon_obstacle'])) :
                 #collision detection
-                config['etat'] = ETAT_FIN
-                
+                config['etat'] = ETAT_COLLISION
+
                 
         for ennemi in (self.tirs_ennemis) :
             distance = sqrt((ennemi.x-self.balle.x)**2 + (ennemi.y-self.balle.y)**2)
             #print ("distance =",distance)
             if (distance < (config['rayon_balle'] + config['taille_ennemi'])) :
                 #collision detection
+                config['etat'] = ETAT_COLLISION
+
+        if config['etat'] == ETAT_COLLISION:
+            if self.explosion == []:
+            # creation d'une explosion
+                self.explosion = [self.balle.x, self.balle.y, 0]
+            else:
+                # explosions (cercles de plus en plus grands)
+                self.explosion[2]+=1
+                
+            if self.explosion[2] == DIAMETRE_EXPLOSION:
+                self.explosion=[]
                 config['etat'] = ETAT_FIN
-    
+
     def display_gameover(self):
         pyxel.text(61, 37, "GAME OVER !", 8)
         pyxel.text(45, 136, "Appuyez sur ENTRER", 8)
@@ -341,11 +354,12 @@ class Jeu:
         pyxel.blt(150,33,1,48,27,6,6) # etoile carré haut droite
   
     def draw(self):
+        pyxel.cls(0)
         if config['etat'] == ETAT_FIN:
             return self.display_gameover()
         if config['etat'] == ETAT_PAUSE:
             return self.display_pause()
-        pyxel.cls(0)
+#        pyxel.cls(0)
         self.draw_stars()
         self.bande1.draw()
         self.bande2.draw()
@@ -355,6 +369,9 @@ class Jeu:
         
         for ennemi in self.tirs_ennemis:
             ennemi.draw()
+        # Dessin de l'explosion
+        if self.explosion != []:
+            pyxel.circb(self.explosion[0]+4, self.explosion[1]+4, 2*(self.explosion[2]//4), 8+self.explosion[2]%3)
             
 Jeu()
 
