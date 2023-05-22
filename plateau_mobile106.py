@@ -56,6 +56,7 @@ class Chronometre:
 
     def draw(self):
         minutes, seconds = divmod(self.time, 60)
+        score = {minutes:02}{seconds:02}
         pyxel.text(90, 5, f"Score: {minutes:02}{seconds:02}", 13)
 
 class Niveau:
