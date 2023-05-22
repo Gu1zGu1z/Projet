@@ -231,6 +231,7 @@ class Jeu:
         # création du chronomètre
         self.chrono = Chronometre()
         self.explosion=[]
+        pyxel.music(0)
         # niveau
         self.niveau = Niveau(self.chrono, self.bande1, self.bande2)
         config['etat'] = ETAT_EN_JEU
