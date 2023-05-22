@@ -31,7 +31,7 @@ config = {
     'bande2_y' : 105, \
     'vitesse_ennemis' : 2, \
     'etat' : ETAT_EN_JEU, \
-    'frequence_obstacle' : 22, \
+    'frequence_obstacle' : 25, \
     'frequence_ennemi' : 50, \
     'frequence_niveau' : 500, \
     'rayon_obstacle' : 2
@@ -56,7 +56,7 @@ class Chronometre:
 
     def draw(self):
         minutes, seconds = divmod(self.time, 60)
-        pyxel.text(90, 5, f"Score: {minutes:02}{seconds:02}", 13)
+        #pyxel.text(90, 5, f"Score: {minutes:02}{seconds:02}", 13)
 
 class Niveau:
     def __init__(self, chrono, bande1, bande2):
@@ -80,15 +80,17 @@ class Niveau:
                 config['vitesse_ennemis'] += 1
                 # incremente la vitesse de gravite de la balle tous les 2 niveaux
                 config['gravite'] += 1
+                config['frequence_obstacle'] += 5
             else:
                 self.bande1.vitesse += 1
                 self.bande2.vitesse += 1
+                #config ['frequence_obstacle'] -= 2
                 
 
     def draw(self):
       # affichage du numéro du niveau sur la meme ligne que le score (chrono)
         pyxel.text(40, 5, f"Niveau: {self.niveau:02}", 13)
-        
+        pyxel.text(90, 5, f"Score: {self.chrono.time}", 13)
 class Balle: 
     def __init__(self, x, y, min_y, max_y, gravite):
         # création de l'objet de la balle contrôlée par le joueur
@@ -342,6 +344,7 @@ class Jeu:
     def display_gameover(self):
         pyxel.text(61, 37, "GAME OVER !", 8)
         pyxel.text(45, 136, "Appuyez sur Y ou O", 8)
+        pyxel.text(62, 82, f"Score: {self.chrono.time}", 14)
 
     def display_pause(self):
         pyxel.text(67, 39, 'En Pause', 8)
