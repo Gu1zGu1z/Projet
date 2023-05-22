@@ -31,7 +31,7 @@ config = {
     'bande2_y' : 105, \
     'vitesse_ennemis' : 2, \
     'etat' : ETAT_EN_JEU, \
-    'frequence_obstacle' : 25, \
+    'frequence_obstacle' : 30, \
     'frequence_ennemi' : 50, \
     'frequence_niveau' : 500, \
     'rayon_obstacle' : 2
