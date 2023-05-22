@@ -58,7 +58,7 @@ objectifs :
 - ✓ collision avec les blocs ( Clara )
 - ✓ collisions avec ennemos ( Margot )
 - ✓ mettre les deux codes ensemble ( Guillaume )
-- ajouter de la musique ( Guillaume )
+- ✓ ajouter de la musique ( Guillaume )
 - ✓ mettre différents niveaux ( Guillaume )
 - rajouter les étoiles bonus ( Clara )
          
