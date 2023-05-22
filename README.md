@@ -60,8 +60,9 @@ objectifs :
 - ✓ mettre les deux codes ensemble ( Guillaume )
 - ✓ ajouter de la musique ( Guillaume )
 - ✓ mettre différents niveaux ( Guillaume )
-- rajouter les étoiles bonus ( Clara )
-         
-                     
+
+
+22/05/2023:
+ON A FINI!!!!
                 
         
