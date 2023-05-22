@@ -216,6 +216,11 @@ class Jeu:
         # définit la taille de la fenêtre et son titre
         pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
         pyxel.load("flipflop1.pyxres")
+        self.restart()
+        pyxel.run(self.update, self.draw)
+        
+        
+    def restart(self):
         # plateaux du haut et du bas
         self.bande1 = Bande(0, config['bande1_y'], HAUTEUR_BANDE)
         self.bande2 = Bande(0, config['bande2_y'], -HAUTEUR_BANDE)
@@ -225,13 +230,13 @@ class Jeu:
         self.tirs_ennemis = []
         # création du chronomètre
         self.chrono = Chronometre()
+        self.explosion=[]
         # niveau
         self.niveau = Niveau(self.chrono, self.bande1, self.bande2)
-        #Explosion
-        self.explosion=[]
+        config['etat'] = ETAT_EN_JEU
         # démarrage
         self.chrono.start()
-        pyxel.run(self.update, self.draw)
+        
         
     def toggle_pause(self):
         # on passe dans le mode pause si on n'y était pas
