@@ -265,7 +265,7 @@ class Jeu:
         elif pyxel.btnp(pyxel.KEY_Q) or (pyxel.btnp(pyxel.KEY_RETURN) and config['etat'] == ETAT_FIN):
             # fin du jeu
             pyxel.quit()
-        elif (pyxel.btnp(pyxel.KEY_O) or pyxel.btnp(pyxel.KEY_Y)) and config['etat'] == ETAT_FIN:
+        elif pyxel.btnp(KEY_KP_ENTER) and config['etat'] == ETAT_FIN:
             # redémarrage du jeu
             self.restart()
             
