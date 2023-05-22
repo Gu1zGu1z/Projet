@@ -56,7 +56,6 @@ class Chronometre:
 
     def draw(self):
         minutes, seconds = divmod(self.time, 60)
-        config['score'] = minutes, seconds
         pyxel.text(90, 5, f"Score: {minutes:02}{seconds:02}", 13)
 
 class Niveau:
@@ -342,7 +341,6 @@ class Jeu:
 
     def display_gameover(self):
         pyxel.text(61, 37, "GAME OVER !", 8)
-        pyxel.text(59, 100, "SCORE =", config['score'], 8)
         pyxel.text(45, 136, "Appuyez sur Y ou O", 8)
 
     def display_pause(self):
