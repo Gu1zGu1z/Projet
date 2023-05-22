@@ -193,9 +193,9 @@ class Jeu:
         # définit la taille de la fenêtre et son titre
         pyxel.init(config['taille_x'], config['taille_y'], title=config['titre'])
         pyxel.load("flipflop1.pyxres")
+        self.restart()
         pyxel.run(self.update, self.draw)
-        if config['etat'] == ETAT_FIN:
-            self.restart()
+        
 
     def restart(self):
         # plateaux du haut et du bas
