@@ -80,7 +80,7 @@ class Niveau:
                 config['vitesse_ennemis'] += 1
                 # incremente la vitesse de gravite de la balle tous les 2 niveaux
                 config['gravite'] += 1
-                config['frequence_obstacle'] += 5
+                config['frequence_obstacle'] -= 5
             else:
                 self.bande1.vitesse += 1
                 self.bande2.vitesse += 1
