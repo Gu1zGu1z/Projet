@@ -340,7 +340,7 @@ class Jeu:
 
     def display_gameover(self):
         pyxel.text(61, 37, "GAME OVER !", 8)
-        pyxel.text(45, 136, "Appuyez sur ENTRER", 8)
+        pyxel.text(45, 136, "Appuyez sur O pour recommencer", 8)
 
     def display_pause(self):
         pyxel.text(67, 39, 'En Pause', 8)
